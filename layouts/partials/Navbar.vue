@@ -1,7 +1,23 @@
 <template>
     <nav class="navbar pb-0 navbar-expand bg-transparent navbar-light border-bottom-1">
         <nuxt-link class="navbar-brand ml-sm-4 ml-1" to="/main">SimpleVids</nuxt-link>
-        <button class="btn text-white ml-auto btn-sm" @click="$store.commit('logout')">Logout</button>
+
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                <li class="nav-item mt-1">
+                    <nuxt-link to="/contact-us">Contact us</nuxt-link>
+                </li>
+                <li class="nav-item ml-4 mt-1">
+                    <nuxt-link to="/about-us">About us</nuxt-link>
+                </li>
+                <li class="nav-item ml-4">
+                    <button
+                        class="btn text-white ml-auto mr-2 btn-sm"
+                        @click="$store.commit('logout')"
+                    >Logout</button>
+                </li>
+            </ul>
+        </div>
     </nav>
 </template>
 

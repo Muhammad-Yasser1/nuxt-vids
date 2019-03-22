@@ -21,7 +21,14 @@
                         <i class="fas fa-external-link-alt"></i>
                     </a>
                 </div>
-                <div class="comments">Disqus will be integerated here</div>
+                <div class="comments">
+                    <!--<vue-disqus
+                        style="width: 100%"
+                        shortname=""
+                        :identifier=""
+                        url=""
+                    ></vue-disqus>-->
+                </div>
             </div>
         </div>
     </div>
@@ -47,7 +54,6 @@ export default {
     font-size: 2.25rem;
 }
 .comments {
-    background: rgb(158, 95, 95);
     display: flex;
     justify-content: center;
     align-items: center;

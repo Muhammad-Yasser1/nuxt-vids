@@ -5,6 +5,12 @@
 
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <nuxt-link to="/contact-us">Contact us</nuxt-link>
+                </li>
+                <li class="nav-item">
+                    <nuxt-link to="/about-us">About us</nuxt-link>
+                </li>
                 <button
                     class="btn text-white ml-auto mr-2 btn-sm"
                     @click="$store.commit('logout')"

@@ -3,7 +3,12 @@
 </template>
 
 <script>
-export default {};
+export default {
+    created() {
+        const firstVid = this.$store.state.vids[0];
+        this.$router.push("/main/" + firstVid.id);
+    }
+};
 </script>
 
 <style>

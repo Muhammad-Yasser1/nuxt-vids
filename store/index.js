@@ -1,3 +1,5 @@
+import Cookie from "js-cookie";
+
 export const state = () => ({
   vids: [],
   token: "",
@@ -22,15 +24,23 @@ export const mutations = {
       .then(res => {
         state.token = res.idToken;
         window.localStorage.setItem("token", res.idToken);
+        Cookie.set("token", res.idToken);
+        Cookie.set(
+          "expirationDate",
+          new Date().getTime() + res.expiresIn * 1000
+        );
+
         if (res.email == "anoop@simple.com") {
           state.isAdmin = true;
           window.localStorage.setItem("isAdmin", true);
+          Cookie.set("isAdmin", true);
           return this.$router.push({
             path: "/admin"
           });
         } else {
           state.isAdmin = false;
           window.localStorage.removeItem("isAdmin");
+          Cookie.remove("isAdmin");
           this.$router.push({
             path: "/main"
           });
@@ -42,6 +52,8 @@ export const mutations = {
     state.isAdmin = false;
     window.localStorage.removeItem("token");
     window.localStorage.removeItem("isAdmin");
+    Cookie.remove("token");
+    Cookie.remove("isAdmin");
     this.$router.push("/");
   },
   getVids(state) {
